@@ -2,13 +2,14 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
+using BinaryFog.SqlObjectComparer.DTO;
 
 namespace BinaryFog.SqlObjectComparer.SqlServer
 {
-    public class SchemaGetter
+    public class SqlCodeGetter : ISqlCodeGetter
     {
 
-        public static string SaveSProcText(string connString, string dbName, string sprocName)
+        public string GetObjectSqlCode(string connString, string dbName, string objName)
         {
             string str;
             SqlConnection conn = null;
@@ -27,7 +28,7 @@ namespace BinaryFog.SqlObjectComparer.SqlServer
                     {
                         CommandType = CommandType.StoredProcedure
                     };
-                    cmd.Parameters.Add(new SqlParameter("@objname", sprocName));
+                    cmd.Parameters.Add(new SqlParameter("@objname", objName));
                     rdr = cmd.ExecuteReader();
                     List<string> lines = new List<string>();
                     while (rdr.Read())

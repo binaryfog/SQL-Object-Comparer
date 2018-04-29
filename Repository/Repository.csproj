@@ -2,10 +2,16 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp2.0</TargetFramework>
+    <RootNamespace>BinaryFog.SqlObjectComparer.Repository</RootNamespace>
+    <AssemblyName>SqlObjectComparer.Repository</AssemblyName>
   </PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="LiteDB" Version="4.1.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\DTO\SqlObjectComparer.DTO.csproj" />
   </ItemGroup>
 
 </Project>
