@@ -1,0 +1,9 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.0</TargetFramework>
+    <RootNamespace>BinaryFog.SqlObjectComparer.DTO</RootNamespace>
+    <AssemblyName>SqlObjectComparer.DTO</AssemblyName>
+  </PropertyGroup>
+
+</Project>
