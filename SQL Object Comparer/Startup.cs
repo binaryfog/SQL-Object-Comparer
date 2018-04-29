@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.SpaServices.Webpack;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace AngularSPABootstrap4
+namespace BinaryFog.SqlObjectComparer
 {
     public class Startup
     {

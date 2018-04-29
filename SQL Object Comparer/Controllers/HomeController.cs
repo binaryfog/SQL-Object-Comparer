@@ -5,7 +5,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 
-namespace AngularSPABootstrap4.Controllers
+namespace BinaryFog.SqlObjectComparer.Controllers
 {
     public class HomeController : Controller
     {

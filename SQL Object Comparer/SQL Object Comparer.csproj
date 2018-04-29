@@ -5,6 +5,9 @@
     <TypeScriptCompileBlocked>true</TypeScriptCompileBlocked>
     <TypeScriptToolsVersion>Latest</TypeScriptToolsVersion>
     <IsPackable>false</IsPackable>
+    <RootNamespace>BinaryFog.SqlObjectComparer</RootNamespace>
+    <Company>BinaryFog.com</Company>
+    <Description>Compare an SQL Object ( view, stored proc, etc. ) accross environments (dev , staging , pre production)</Description>
   </PropertyGroup>
 
   <ItemGroup>
