@@ -7,6 +7,8 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.SpaServices.Webpack;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using BinaryFog.SqlObjectComparer.DTO;
+using BinaryFog.SqlObjectComparer.Repository;
 
 namespace BinaryFog.SqlObjectComparer
 {
@@ -15,6 +17,7 @@ namespace BinaryFog.SqlObjectComparer
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
+            
         }
 
         public IConfiguration Configuration { get; }
@@ -22,7 +25,10 @@ namespace BinaryFog.SqlObjectComparer
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.Configure<Repository.Repository>(Configuration);
+
             services.AddMvc();
+            services.AddScoped<IRepository, Repository.Repository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

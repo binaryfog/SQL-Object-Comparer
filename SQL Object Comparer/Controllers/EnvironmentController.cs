@@ -10,15 +10,12 @@ namespace BinaryFog.SqlObjectComparer.Controllers
     [Route("api/[controller]")]
     public class EnvironmentController : Controller
     {
-        IRepository repository;
-        public EnvironmentController() {
-            this.repository = new BinaryFog.SqlObjectComparer.Repository.Repository();
+        private readonly IRepository repository;
+        
+        public EnvironmentController(IRepository repository)
+        {
+            this.repository = repository;
         }
-
-        //public EnvironmentController( IRepository repository)
-        //{
-        //    this.repository = repository;
-        //}
 
         private static string[] Summaries = new[]
         {
@@ -28,7 +25,11 @@ namespace BinaryFog.SqlObjectComparer.Controllers
         [HttpGet("[action]")]
         public IEnumerable<WeatherForecast> WeatherForecasts()
         {
-           
+
+            DTO.Environment env = new DTO.Environment() { Name = "Development", ConnectionStringTemplate="SQL={0}" };
+            repository.AddEnvironment(env);
+
+
             var rng = new Random();
             
             return Enumerable.Range(1, 5).Select(index => new WeatherForecast
