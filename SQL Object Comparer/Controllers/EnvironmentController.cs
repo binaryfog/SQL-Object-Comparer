@@ -26,8 +26,10 @@ namespace BinaryFog.SqlObjectComparer.Controllers
         public IEnumerable<WeatherForecast> WeatherForecasts()
         {
 
-            DTO.Environment env = new DTO.Environment() { Name = "Development", ConnectionStringTemplate="SQL={0}" };
-            repository.AddEnvironment(env);
+            var envs = repository.ListEnvironments();
+
+            //DTO.Environment env = new DTO.Environment() { Name = "Development", ConnectionStringTemplate="SQL={0}" };
+            //repository.AddEnvironment(env);
 
 
             var rng = new Random();

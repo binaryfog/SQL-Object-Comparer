@@ -14,36 +14,52 @@ namespace BinaryFog.SqlObjectComparer.Repository
         {
             using (var db = new LiteDatabase(DbLocation))
             {
-                // Get customer collection
-                var customers = db.GetCollection<DTO.Environment>("environments");
+                // Get environments collection
+                var envs = db.GetCollection<DTO.Environment>("environments");
 
-                // Insert new customer document (Id will be auto-incremented)
-                customers.Insert(env);
+                // Insert new environment document (Id will be auto-incremented)
+                envs.Insert(env);
 
                 // Index document using a document property
-                customers.EnsureIndex(x => x.Name);
+                envs.EnsureIndex(x => x.Name);
             }
         }
 
         public void DeleteEnvironment(int envId)
         {
-            throw new NotImplementedException();
+            using (var db = new LiteDatabase(DbLocation))
+            {
+                // Get environments collection
+                var envs = db.GetCollection<DTO.Environment>("environments");
+
+               
+
+            }
         }
 
         public void EditEnvironment(DTO.Environment env)
         {
-            throw new NotImplementedException();
+            using (var db = new LiteDatabase(DbLocation))
+            {
+                // Get environments collection
+                var envs = db.GetCollection<DTO.Environment>("environments");
+
+                envs.Update(env);
+
+            }
         }
 
         public IList<DTO.Environment> ListEnvironments()
         {
             using (var db = new LiteDatabase(DbLocation))
             {
-                // Get customer collection
-                var customers = db.GetCollection<DTO.Environment>("environments");
+                // Get environments collection
+                var envs = db.GetCollection<DTO.Environment>("environments");
 
-                // Use Linq to query documents
-                return customers.FindAll() as IList<DTO.Environment>;
+
+                List<DTO.Environment> result = new List<DTO.Environment>();
+                result.AddRange(envs.FindAll());
+                return result;
             }
         }
     }
